@@ -1,0 +1,59 @@
+.cardContainer {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .cardFace {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cardFront {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .cardBack {
+    background-color: #2ecc71;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  
