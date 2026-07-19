@@ -26,12 +26,12 @@ const Blogs = () => {
   useEffect(() => {
     const fetchInterviews = async () => {
       try {
-        const response = await axios.post('/api/interview/show-home-interview');
-        //console.log(response.data.interviews);
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/interview/show-home-interview`);
+        //console.log(response.data);
 
         const bgColors = ["bg-red-200", "bg-blue-200", "bg-green-200", "bg-yellow-200", "bg-purple-200"];
 
-        const interviewsWithBgColor = response.data.interviews.map((item: BlogPost, index: number) => ({
+        const interviewsWithBgColor = response.data.blogs.map((item: BlogPost, index: number) => ({
           ...item,
           bgColor: bgColors[index % bgColors.length],
         }));

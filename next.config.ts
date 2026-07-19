@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const backendUrl = process.env.BACKEND_URL || "http://localhost:5000";
+const backendUrl = process.env.NEXT_PUBLIC_API_URL || "https://cpcheats-backend.vercel.app/";
 
 console.log(`[Next.js Configuration] Proxying API and MCP calls to destination: ${backendUrl}`);
 

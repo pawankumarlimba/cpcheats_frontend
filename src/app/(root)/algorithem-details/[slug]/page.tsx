@@ -79,7 +79,7 @@ export default function Interview({ params }: { params: Promise<Params> }) {
       try {
         toast.info("Fetching post...", { autoClose: 1000 });
 
-        const { data } = await axios.post("/api/algorithm-details/algorithm-details-find", { slug });
+        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/algorithm-details/algorithm-details-find`, { slug });
         setPost(data.post);
         toast.success("Post loaded successfully!");
       } catch (error) {
@@ -94,7 +94,7 @@ export default function Interview({ params }: { params: Promise<Params> }) {
     
     const fetchProblems = async () => {
       try {
-        const { data } = await axios.post("/api/algorithm-details/algorithm-question", { slug });
+        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/algorithm-details/algorithm-question`, { slug });
 
         const checkedState: Record<string, boolean> = {};
         data.questions.forEach((problem: ProblemData) => {
@@ -118,7 +118,7 @@ export default function Interview({ params }: { params: Promise<Params> }) {
   }, [slug, userId]);
   const finduserdata = async () => {
     try {
-      const response = await axios.post("/api/questions/topic-wise-count", { slug, userId });
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/questions/topic-wise-count`, { slug, userId });
       setcount(response.data)
     } catch (error) {
       console.log(error)

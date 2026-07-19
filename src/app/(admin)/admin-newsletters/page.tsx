@@ -31,7 +31,7 @@ export default function AdminProject() {
     const fetchInterviews = async () => {
       try {
         setLoading(true) // Start loading
-        const  data  = await axios.post('/api/interview/show-interview-all')
+        const  data  = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/interview/show-interview-all`)
         setInterview(data.data.interviews || [])
       } catch (error) {
         console.error('Error fetching interviews:', error)
@@ -47,7 +47,7 @@ export default function AdminProject() {
   const handlesendmail = async (id: string) => {
     try {
       setLoadingbutton(id)
-      const response = await axios.post('/api/news-latter/sending-mail', { id }); 
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/news-latter/sending-mail`, { id }); 
       if (response.status==200) {
         
         toast.success(response.data.message);
@@ -69,7 +69,7 @@ export default function AdminProject() {
 
   const handleLogin = async (data:{ email: string; password: string }) => {
     try {
-      const response = await axios.post('/api/admin/login', data);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/login`, data);
       if (response.data.success) {
         toast.success(response.data.message);
         localStorage.setItem('token', response.data.user.accessToken);

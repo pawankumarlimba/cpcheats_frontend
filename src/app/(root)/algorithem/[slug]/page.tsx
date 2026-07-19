@@ -35,7 +35,7 @@ export default function Algo({ params }: { params: Promise<Params> }) {
     const fetchNavItems = async () => {
       try {
         setLoading(true);
-        const response = await axios.post("/api/algorithm/algorithm-search", { slug });
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/algorithm/algorithm-search`, { slug });
 
         if (response.data) {
           setAlgorithem(response.data.algorithm || null);
@@ -74,7 +74,7 @@ export default function Algo({ params }: { params: Promise<Params> }) {
     e.preventDefault(); 
     try {
       setLoading(true) 
-      const { data } = await axios.post('/api/algorithm/algorithm-find', 
+      const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/algorithm/algorithm-find`, 
         { searchQuery: searchQuery.trim() },
         { headers: { 'Content-Type': 'application/json' } } 
       )

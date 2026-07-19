@@ -76,7 +76,7 @@ export default function Dashboard({ params }: { params: Promise<Params> }) {
 
     const finduserquestiondata = async (userId: string) => {
       try {
-        const response = await axios.post("/api/questions/user-solve", {userId});
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/questions/user-solve`, {userId});
         console.log(response); 
 
         if (response.status==200) {
@@ -95,7 +95,7 @@ export default function Dashboard({ params }: { params: Promise<Params> }) {
 
     const finduserquestiondata1 = async (userId: string) => {
       try {
-        const response = await axios.post("/api/questions/user-data", {userId});
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/questions/user-data`, {userId});
         //console.log(response); 
 
         if (response.status==200) {

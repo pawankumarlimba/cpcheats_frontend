@@ -28,7 +28,7 @@ const Case = () => {
 
     const fetchAlgorithms = async () => {
       try {
-        const response = await axios.post('/api/algorithm/show-home-algorithm');
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/algorithm/show-home-algorithm`);
         //console.log(response.data.algorithm);
 
         const bgColors = ["bg-[#F5FFBF]", "bg-[#B3FFD9]", "bg-[#FFE0B3]"];
